@@ -3,5 +3,5 @@ from food_consuming import views
 
 
 urlpatterns = [
-    path('hello', views.say_hello, namme='hello')
+    path('', views.IndexView, name="index")
 ]
