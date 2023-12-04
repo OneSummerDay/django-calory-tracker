@@ -14,3 +14,11 @@ class IndexView(TemplateView):
         context['foods'] = Food.objects.all()
         context['consumed_food'] = Consume.objects.filter(user=self.request.user)
         return context
+
+    def post(self, request, *args, **kwargs):
+        food_consumed = request.POST['food_consumed']
+        consume = Food.objects.get(name=food_consumed)
+        user = request.user
+        consume = Consume(user=user, food_consumed=consume)
+        consume.save()
+        return redirect('/')
