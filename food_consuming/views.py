@@ -34,3 +34,5 @@ class DeleteView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         consumed_food = Consume.objects.get(id=kwargs['id'])
+        consumed_food.delete()
+        return redirect('/')
