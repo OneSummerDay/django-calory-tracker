@@ -13,7 +13,7 @@ class Food(models.Model):
         return self.name
 
 
-class FoodConsumed(models.Model):
+class Consume(models.Model):
     user = models.ForeignKey(User)
     food = models.ForeignKey(User)
 
